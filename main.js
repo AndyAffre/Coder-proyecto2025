@@ -1,101 +1,73 @@
-// Simulador de reservas de canchas y/o eventos depostivos  //
+// ---------- VARIABLES Y ARRAYS ---------- //
 
-// ------------------ VARIABLES Y ARRAYS ----------------- //
-const canchas = ["Cancha 1", "Cancha 2", "Cancha 3"];
-let reservas = []; // Array donde guardaremos las reservas
-let seguir = true;
+const formReserva = document.getElementById("formReserva");
+const reservasContainer = document.getElementById("reservasContainer");
+const btnBorrarTodo = document.getElementById("btnBorrarTodo");
 
-// ------------------ FUNCIONES ----------------- //
+let reservas = JSON.parse(localStorage.getItem("reservas")) || []; 
 
-// Función para mostrar los horarios disponibles //
-function mostrarHorarios() {
-  console.log("=== HORARIOS DISPONIBLES ===");
-  for (let i = 10; i <= 22; i += 2) {
-    console.log(`${i}:00 hs`);
-  }
+
+// ---------- FUNCIONES ---------- //
+
+// Función para renderizar todas las reservas en pantalla //
+function mostrarReservas() {
+  reservasContainer.innerHTML = ""; 
+
+  reservas.forEach((reserva, index) => {
+    const li = document.createElement("li");
+    li.innerHTML = `
+      <span><strong>${reserva.nombre}</strong> - ${reserva.cancha} - ${reserva.fechaHora}</span>
+      <button class="borrar" data-index="${index}">Eliminar</button>
+    `;
+    reservasContainer.appendChild(li);
+  });
+
+  
+  const botonesBorrar = document.querySelectorAll(".borrar");
+  botonesBorrar.forEach(btn => {
+    btn.addEventListener("click", eliminarReserva);
+  });
 }
 
-// Función para hacer una reserva //
-function hacerReserva() {
-  const nombre = prompt("Ingrese su nombre:");
-  const cancha = prompt("Seleccione una cancha (1, 2 o 3):");
-  const horario = prompt("Ingrese el horario que desea (10, 12, 14, ..., 22):");
+// Función para agregar una reserva nuevas //
+function agregarReserva(event) {
+  event.preventDefault(); 
 
-  // Validaciones básicas
-  if (!nombre || isNaN(cancha) || isNaN(horario)) {
-    alert("Datos inválidos. Intente nuevamente.");
-    return;
-  }
+  const nombre = document.getElementById("nombre").value.trim();
+  const cancha = document.getElementById("cancha").value.trim();
+  const fechaHora = document.getElementById("fechaHora").value;
 
-  const canchaSeleccionada = canchas[cancha - 1];
+  if (nombre === "" || cancha === "" || fechaHora === "") return;
 
-  // Verificar si el horario ya está reservado //
-  const existe = reservas.some(
-    (r) => r.cancha === canchaSeleccionada && r.horario == horario
-  );
+  const nuevaReserva = { nombre, cancha, fechaHora };
+  reservas.push(nuevaReserva);
 
-  if (existe) {
-    alert("Ese horario ya está reservado. Intente otro.");
-  } else {
-    reservas.push({ nombre, cancha: canchaSeleccionada, horario });
-    alert(`Reserva confirmada: ${nombre} - ${canchaSeleccionada} - ${horario}:00 hs`);
-  }
+  //  localStorage //
+  localStorage.setItem("reservas", JSON.stringify(reservas));
+
+  formReserva.reset(); 
+  mostrarReservas(); 
 }
 
-// Función para mostrar todas las reservas //
-function verReservas() {
-  console.log("=== RESERVAS CONFIRMADAS ===");
-  if (reservas.length === 0) {
-    console.log("No hay reservas registradas.");
-  } else {
-    reservas.forEach((r, i) => {
-      console.log(`${i + 1}. ${r.nombre} - ${r.cancha} - ${r.horario}:00 hs`);
-    });
-  }
+// Función para eliminar una reserva específica //
+function eliminarReserva(event) {
+  const index = event.target.dataset.index;
+  reservas.splice(index, 1);
+  localStorage.setItem("reservas", JSON.stringify(reservas));
+  mostrarReservas();
 }
 
-// Función para cancelar una reserva //
-function cancelarReserva() {
-  const nombre = prompt("Ingrese su nombre para cancelar su reserva:");
-  const indice = reservas.findIndex((r) => r.nombre.toLowerCase() === nombre.toLowerCase());
-
-  if (indice !== -1) {
-    const confirmar = confirm(`¿Desea cancelar la reserva de ${reservas[indice].cancha} a las ${reservas[indice].horario}:00 hs?`);
-    if (confirmar) {
-      reservas.splice(indice, 1);
-      alert("Reserva cancelada correctamente.");
-    }
-  } else {
-    alert("No se encontró ninguna reserva con ese nombre.");
-  }
+// Función para borrar todas las reservas //
+function borrarTodas() {
+  reservas = [];
+  localStorage.removeItem("reservas");
+  mostrarReservas();
 }
 
-// ------------------ SIMULADOR PRINCIPAL ----------------- //
-alert("Bienvenido al simulador de reservas de canchas.");
+// ---------- EVENTOS ---------- //
+formReserva.addEventListener("submit", agregarReserva);
+btnBorrarTodo.addEventListener("click", borrarTodas);
 
-while (seguir) {
-  const opcion = prompt(
-    "Seleccione una opción:\n1. Ver horarios\n2. Hacer una reserva\n3. Ver reservas\n4. Cancelar reserva\n5. Salir"
-  );
 
-  switch (opcion) {
-    case "1":
-      mostrarHorarios();
-      break;
-    case "2":
-      hacerReserva();
-      break;
-    case "3":
-      verReservas();
-      break;
-    case "4":
-      cancelarReserva();
-      break;
-    case "5":
-      alert("Gracias por usar el simulador. ¡Hasta luego!");
-      seguir = false;
-      break;
-    default:
-      alert("Opción inválida. Intente nuevamente.");
-  }
-}
+// ---------- INICIALIZACIÓN ---------- //
+mostrarReservas(); 

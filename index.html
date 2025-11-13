@@ -3,11 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simulador de Reservas de Canchas</title>
+  <title>Reserva de Canchas</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- El atributo defer asegura que el JS cargue cuando el HTML ya esté disponible -->
+  <script defer src="main.js"></script>
 </head>
 <body>
-  
-  <script src="main.js"></script>
+  <header>
+    <h1>Reserva de Canchas</h1>
+  </header>
+
+  <main>
+    <!-- FORMULARIO DE RESERVA -->
+    <section id="formulario-reserva">
+      <h2>¡Hacé tu reserva!</h2>
+      <form id="formReserva">
+        <input type="text" id="nombre" placeholder="Tu nombre" required>
+        <input type="text" id="cancha" placeholder="Tipo de cancha (fútbol, tenis...)" required>
+        <input type="datetime-local" id="fechaHora" required>
+        <button type="submit">Reservar</button>
+      </form>
+    </section>
+
+    <!-- LISTA DE RESERVAS -->
+    <section id="lista-reservas">
+      <h2>Reservas actuales</h2>
+      <ul id="reservasContainer"></ul>
+      <button id="btnBorrarTodo" class="borrar-todo">Borrar todas las reservas</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Proyecto JSCoder - Simulador de Reservas Deportivas 2025</p>
+  </footer>
 </body>
 </html>
-
