@@ -1,39 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reserva de Canchas</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simulador de Reservas</title>
+  <link rel="stylesheet" href="styles.css" />
   <script defer src="main.js"></script>
 </head>
 <body>
   <header>
-    <h1>Reserva de Canchas</h1>
+    <h1>Simulador de Reservas</h1>
   </header>
 
   <main>
-    <!-- FORMULARIO DE RESERVA -->
-    <section id="formulario-reserva">
-      <h2>¡Hacé tu reserva!</h2>
-      <form id="formReserva">
-        <input type="text" id="nombre" placeholder="Tu nombre" required>
-        <input type="text" id="cancha" placeholder="Tipo de cancha (fútbol, tenis...)" required>
-        <input type="datetime-local" id="fechaHora" required>
-        <button type="submit">Reservar</button>
+    <section class="form-section">
+      <h2>Crear Reserva</h2>
+
+      <form id="reservaForm" autocomplete="off">
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" type="text" placeholder="Ingrese un nombre" />
+
+        <label for="canchaSelect">Seleccionar cancha:</label>
+        <select id="canchaSelect" required>
+          <option value="">Cargando canchas...</option>
+        </select>
+
+        <label for="fecha">Fecha:</label>
+        <input id="fecha" type="date" required />
+
+        <label for="horaSelect">Horario (horas en punto):</label>
+        <select id="horaSelect" required>
+          <option value="">Seleccioná una hora</option>
+        </select>
+
+        <button type="submit" class="btn">Reservar</button>
       </form>
+
+      <div id="mensaje" class="mensaje" aria-live="polite"></div>
     </section>
 
-    <!-- LISTA DE RESERVAS -->
-    <section id="lista-reservas">
-      <h2>Reservas actuales</h2>
-      <ul id="reservasContainer"></ul>
-      <button id="btnBorrarTodo" class="borrar-todo">Borrar todas las reservas</button>
+    <section class="reservas-section">
+      <h2>Reservas realizadas</h2>
+      <ul id="listaReservas"></ul>
+
+      <button id="btnBorrarTodo" class="btn eliminar" style="display:none">Borrar todas las reservas</button>
     </section>
   </main>
 
   <footer>
-    <p>Proyecto JSCoder 2025 - Simulador de Reservas Deportivas</p>
+    Simulador de Reservas - Proyecto Final Coder
   </footer>
-</body> 
+</body>
 </html>

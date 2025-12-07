@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nombre": "Cancha 1",
+    "tipo": "Fútbol 5",
+    "precio": 12000
+  },
+  {
+    "id": 2,
+    "nombre": "Cancha 2",
+    "tipo": "Fútbol 6",
+    "precio": 15000
+  },
+  {
+    "id": 3,
+    "nombre": "Cancha 3",
+    "tipo": "Fútbol 7",
+    "precio": 18000
+  },
+  {
+    "id": 4,
+    "nombre": "Cancha de Tenis",
+    "tipo": "Tenis",
+    "precio": 9000
+  }
+]
