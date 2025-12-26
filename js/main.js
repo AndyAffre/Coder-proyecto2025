@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     renderReservas();
 });
 
-
 //Placeholder dinámico//
 
 inputNombre.addEventListener("focus", () => {
@@ -30,7 +29,6 @@ inputNombre.addEventListener("blur", () => {
         inputNombre.placeholder = "Ingrese su nombre";
     }
 });
-
 
 //FETCH JSON//
 
@@ -57,7 +55,6 @@ async function cargarHorarios() {
         selectHorario.appendChild(option);
     });
 }
-
 
 //EVENTO FORM//
 
@@ -117,7 +114,6 @@ form.addEventListener("submit", e => {
     inputNombre.placeholder = "Ingrese su nombre";
 });
 
-
 //RENDER//
 
 function renderReservas() {
@@ -142,7 +138,6 @@ function renderReservas() {
     });
 }
 
-
 //STORAGE//
 
 function guardarReservas() {
@@ -165,7 +160,6 @@ btnBorrarTodo.addEventListener("click", () => {
     guardarReservas();
     renderReservas();
 });
-
 
 //MENSAJES//
 
