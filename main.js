@@ -49,7 +49,7 @@ function poblarSelectCanchas() {
   });
 }
 
-// Horarios //
+//Horarios//
 function poblarHoras(horaInicio = 9, horaFin = 23) {
   horaSelect.innerHTML = '<option value="">Seleccioná una hora</option>';
   for (let h = horaInicio; h <= horaFin; h++) {
@@ -61,7 +61,7 @@ function poblarHoras(horaInicio = 9, horaFin = 23) {
   }
 }
 
-   // Eventos y placeholder //
+   //Eventos y placeholder//
 
 function configurarEventos() {
   reservaForm.addEventListener("submit", handleSubmit);
@@ -92,7 +92,7 @@ function configurarEventos() {
   });
 }
 
-  // Submit nueva reseva //
+  //Nueva reseva//
 
 function handleSubmit(e) {
   e.preventDefault();
@@ -102,7 +102,7 @@ function handleSubmit(e) {
   const fecha = document.getElementById("fecha").value;
   const hora = horaSelect.value;
 
-  // Validaciones //
+  //Validaciones//
   if (!nombre) {
     mostrarMensaje("Por favor ingresá tu nombre antes de reservar.", "error");
     inputNombre.focus();
@@ -120,7 +120,7 @@ function handleSubmit(e) {
     return;
   }
 
-  // Prevención de duplicados //
+  //Prevención de duplicados//
   const existe = reservas.some(r =>
     String(r.canchaIdx) === String(idx) &&
     r.fecha === fecha &&
@@ -145,7 +145,7 @@ function handleSubmit(e) {
     hora
   };
 
- // Crear nueva rerserva //
+ //Crear nueva rerserva//
   reservas.push(nuevaReserva);
   guardarReservas();
   renderReservas();
@@ -155,7 +155,7 @@ function handleSubmit(e) {
   mostrarMensaje("Reserva creada correctamente.", "ok");
 }
 
-  // Render de reservas //
+  //Render de reservas//
 
 function renderReservas() {
   listaReservas.innerHTML = "";
@@ -197,7 +197,7 @@ function renderReservas() {
   btnBorrarTodo.style.display = "block";
 }
 
-// Funcion de eleminar y borrar reservas //
+//Eleminar y borrar reservas//
 function eliminarReservaPorId(id) {
   reservas = reservas.filter(r => r.id !== id);
   guardarReservas();
@@ -212,7 +212,7 @@ function handleBorrarTodo() {
   mostrarMensaje("Todas las reservas fueron eliminadas.", "ok");
 }
 
-// Storage //
+//Storage//
 function guardarReservas() {
   localStorage.setItem("reservas", JSON.stringify(reservas));
 }

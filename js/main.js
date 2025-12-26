@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
     renderReservas();
 });
 
-// ===============================
-// Placeholder dinámico
-// ===============================
+
+//Placeholder dinámico//
+
 inputNombre.addEventListener("focus", () => {
     if(inputNombre.placeholder === "Ingrese su nombre") {
         inputNombre.placeholder = "";
@@ -31,9 +31,9 @@ inputNombre.addEventListener("blur", () => {
     }
 });
 
-// ===============================
-// FETCH JSON
-// ===============================
+
+//FETCH JSON//
+
 async function cargarCanchas() {
     const resp = await fetch("data/canchas.json");
     const canchas = await resp.json();
@@ -58,9 +58,9 @@ async function cargarHorarios() {
     });
 }
 
-// ===============================
-// EVENTO FORM
-// ===============================
+
+//EVENTO FORM//
+
 form.addEventListener("submit", e => {
     e.preventDefault();
 
@@ -113,13 +113,13 @@ form.addEventListener("submit", e => {
     form.reset();
     mostrarMensaje("Reserva creada correctamente", "ok");
 
-    // Reiniciar placeholder
+    
     inputNombre.placeholder = "Ingrese su nombre";
 });
 
-// ===============================
-// RENDER
-// ===============================
+
+//RENDER//
+
 function renderReservas() {
     listaReservas.innerHTML = "";
 
@@ -142,9 +142,9 @@ function renderReservas() {
     });
 }
 
-// ===============================
-// STORAGE
-// ===============================
+
+//STORAGE//
+
 function guardarReservas() {
     localStorage.setItem("reservas", JSON.stringify(reservas));
 }
@@ -166,9 +166,9 @@ btnBorrarTodo.addEventListener("click", () => {
     renderReservas();
 });
 
-// ===============================
-// MENSAJES
-// ===============================
+
+//MENSAJES//
+
 function mostrarMensaje(texto, tipo) {
     mensaje.textContent = texto;
     mensaje.className = `mensaje ${tipo}`;

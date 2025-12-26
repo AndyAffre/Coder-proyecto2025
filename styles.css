@@ -12,7 +12,7 @@ body {
     padding-bottom: 70px;
 }
 
-/* Header */
+/*Header*/
 
 header {
     background: #1e90ff;
@@ -48,7 +48,7 @@ main {
     margin-bottom: 12px;
 }
 
-/* Form */
+/*Form*/
 
 label {
     display: block;
@@ -74,7 +74,7 @@ select:focus {
     box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.08);
 }
 
-/* Botones */
+/*Botones*/
 
 .btn {
     display: inline-block;
@@ -92,7 +92,7 @@ select:focus {
     background: #0f6fcc;
 }
 
-/* Boton rojo */
+/*Boton rojo*/
 
 .btn.eliminar {
     background: #d9534f;
@@ -102,7 +102,7 @@ select:focus {
     background: #c9302c;
 }
 
-/* Lista de Rercervas */
+/*Lista de Rercervas*/
 
 #listaReservas {
     list-style: none;
@@ -140,7 +140,7 @@ select:focus {
     min-height: 20px;
 }
 
-/* Footer */
+/*Footer*/
 
 footer {
     position: fixed;
@@ -156,7 +156,7 @@ footer {
     font-weight: 700;
 }
 
-/* Sistema Responsive */
+/*istema Responsive*/
 
 @media (min-width: 900px) {
     main {

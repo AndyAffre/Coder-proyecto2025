@@ -1,7 +1,5 @@
-/* ============================= */
-/* Reset básico */
-/* ============================= */
 
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -16,9 +14,7 @@ body {
 }
 
 
-/* ============================= */
 /* Header */
-/* ============================= */
 
 header {
     background-color: #1e90ff;
@@ -32,9 +28,7 @@ header h1 {
 }
 
 
-/* ============================= */
 /* Layout principal */
-/* ============================= */
 
 main {
     max-width: 900px;
@@ -47,9 +41,8 @@ main {
 }
 
 
-/* ============================= */
+
 /* Secciones */
-/* ============================= */
 
 .form-section,
 .reservas-section {
@@ -65,9 +58,7 @@ main {
 }
 
 
-/* ============================= */
 /* Formulario */
-/* ============================= */
 
 label {
     display: block;
@@ -94,9 +85,7 @@ select:focus {
 }
 
 
-/* ============================= */
 /* Botones */
-/* ============================= */
 
 button {
     margin-top: 15px;
@@ -116,7 +105,6 @@ button:hover {
     background-color: #0f6fcc;
 }
 
-
 /* Botones eliminar */
 
 .btn-eliminar {
@@ -128,9 +116,7 @@ button:hover {
 }
 
 
-/* ============================= */
 /* Lista de reservas */
-/* ============================= */
 
 #listaReservas {
     list-style: none;
@@ -154,9 +140,7 @@ button:hover {
 }
 
 
-/* ============================= */
 /* Mensajes */
-/* ============================= */
 
 .mensaje {
     margin-top: 10px;
@@ -165,9 +149,7 @@ button:hover {
 }
 
 
-/* ============================= */
 /* Footer */
-/* ============================= */
 
 footer {
     position: fixed;
@@ -183,10 +165,7 @@ footer {
     font-weight: bold;
 }
 
-
-/* ============================= */
 /* Responsive */
-/* ============================= */
 
 @media (min-width: 900px) {
     main {
