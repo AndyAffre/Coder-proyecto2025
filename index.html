@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador de Reservas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- JS -->
+    <script defer src="js/reservas.js"></script>
+    <script defer src="js/main.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Simulador de Reservas</h1>
+    </header>
+
+    <main>
+
+        <!-- FORMULARIO -->
+        <section class="form-section">
+            <h2>Crear reserva</h2>
+
+            <form id="formReserva">
+
+                <label for="nombre">Nombre</label>
+                <input
+                    type="text"
+                    id="nombre"
+                    placeholder="Ingrese su nombre"
+                    autocomplete="off"
+                >
+
+                <label for="cancha">Cancha</label>
+                <select id="cancha">
+                    <option value="">Seleccione una cancha</option>
+                </select>
+
+                <label for="fecha">Fecha</label>
+                <input type="date" id="fecha">
+
+                <label for="horario">Horario</label>
+                <select id="horario">
+                    <option value="">Seleccione un horario</option>
+                </select>
+
+                <button type="submit" class="btn">Reservar</button>
+
+                <p id="mensaje" class="mensaje"></p>
+
+            </form>
+        </section>
+
+        <!-- LISTADO DE RESERVAS -->
+        <section class="reservas-section">
+            <h2>Reservas realizadas</h2>
+
+            <ul id="listaReservas"></ul>
+
+            <button
+                id="btnBorrarTodo"
+                class="btn eliminar"
+            >
+                Borrar todas las reservas
+            </button>
+        </section>
+
+    </main>
+
+    <footer>
+        Simulador de Reservas - Proyecto Final Coder
+    </footer>
+
+</body>
+</html>
